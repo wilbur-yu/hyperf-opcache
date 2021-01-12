@@ -35,7 +35,6 @@ php bin/hyperf.php opcache:clear
 ```bash
 php bin/hyperf.php opcache:compile {--force}
 ```
-
 > Note: opcache.dups_fix must be enabled, or use the --force flag. If you run into "Cannot redeclare class" errors, enable opcache.dups_fix or add the class path to the exclude list.
 
 # Contributing
