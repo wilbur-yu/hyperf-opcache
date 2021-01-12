@@ -11,8 +11,12 @@ declare(strict_types=1);
  */
 namespace WilburYu\HyperfOpcache;
 
+use Exception;
 use Symfony\Component\Finder\Finder;
 
+/**
+ * Class Opcache.
+ */
 class Opcache
 {
     /**
@@ -23,6 +27,8 @@ class Opcache
         if (function_exists('opcache_reset')) {
             return opcache_reset();
         }
+
+        return null;
     }
 
     /**
@@ -33,6 +39,8 @@ class Opcache
         if (function_exists('opcache_get_configuration')) {
             return opcache_get_configuration();
         }
+
+        return null;
     }
 
     /**
@@ -45,6 +53,8 @@ class Opcache
         if (function_exists('opcache_get_status')) {
             return opcache_get_status(false);
         }
+
+        return false;
     }
 
     /**
@@ -60,40 +70,42 @@ class Opcache
             return ['message' => 'opcache.dups_fix must be enabled, or run with --force'];
         }
 
-        if (function_exists('opcache_compile_file')) {
-            $compiled = 0;
-
-            // Get files in these paths
-            $files = collect(Finder::create()->in(config('opcache.directories'))
-                ->name('*.php')
-                ->ignoreUnreadableDirs()
-                ->notContains('#!/usr/bin/env php')
-                ->exclude(config('opcache.exclude_dirs'))
-                ->files()
-                ->followLinks());
-
-            // optimized files
-            $files->each(function ($file) use (&$compiled) {
-                $array = explode('/', (string) $file);
-                $filename = array_pop($array);
-
-                if (in_array($filename, config('opcache.exclude_files'), true)) {
-                    return;
-                }
-                try {
-                    if (! opcache_is_script_cached((string) $file)) {
-                        opcache_compile_file((string) $file);
-                    }
-
-                    ++$compiled;
-                } catch (\Exception $e) {
-                }
-            });
-
-            return [
-                'total_files_count' => $files->count(),
-                'compiled_count' => $compiled,
-            ];
+        if (! function_exists('opcache_compile_file')) {
+            return ['message' => 'Please install the Opcache extension'];
         }
+
+        $compiled = 0;
+
+        // Get files in these paths
+        $files = collect(Finder::create()->in(config('opcache.directories'))
+            ->name('*.php')
+            ->ignoreUnreadableDirs()
+            ->notContains('#!/usr/bin/env php')
+            ->exclude(config('opcache.exclude_dirs'))
+            ->files()
+            ->followLinks());
+
+        // optimized files
+        $files->each(function ($file) use (&$compiled) {
+            $array = explode('/', (string) $file);
+            $filename = array_pop($array);
+
+            if (in_array($filename, config('opcache.exclude_files'), true)) {
+                return;
+            }
+            try {
+                if (! opcache_is_script_cached((string) $file)) {
+                    opcache_compile_file((string) $file);
+                }
+
+                ++$compiled;
+            } catch (Exception $e) {
+            }
+        });
+
+        return [
+            'total_files_count' => $files->count(),
+            'compiled_count' => $compiled,
+        ];
     }
 }
