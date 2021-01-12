@@ -30,10 +30,12 @@ class ClearCommand extends AbstractCommand
     {
         $result = $this->opcache->clear();
 
-        if ($result) {
-            $this->output->success('OPcache cleared');
-        } else {
+        if (! $result) {
             $this->output->error('OPcache not configured');
+
+            return;
         }
+
+        $this->output->success('OPcache cleared');
     }
 }
