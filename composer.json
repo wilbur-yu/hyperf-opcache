@@ -4,7 +4,20 @@
     "license": "MIT",
     "keywords": [
         "php",
-        "hyperf"
+        "hyperf",
+        "opcache",
+        "swoole",
+        "hyperf-opcache",
+        "wilbur-yu",
+        "wilbur"
+    ],
+    "authors": [
+        {
+            "name": "wilbur.yu",
+            "email": "wilbur.yu@creative-life.club",
+            "homepage": "https://creative-life.club",
+            "role": "Developer"
+        }
     ],
     "description": "PHP Opcache command for Hyperf",
     "autoload": {
