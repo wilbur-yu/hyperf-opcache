@@ -11,8 +11,8 @@ declare(strict_types=1);
  */
 namespace WilburYu\HyperfOpcache;
 
-use Exception;
 use Symfony\Component\Finder\Finder;
+use Throwable;
 
 /**
  * Class Opcache.
@@ -80,26 +80,30 @@ class Opcache
         $files = collect(Finder::create()->in(config('opcache.directories'))
             ->name('*.php')
             ->ignoreUnreadableDirs()
+            ->ignoreDotFiles(true)
+            ->ignoreVCS(true)
             ->notContains('#!/usr/bin/env php')
             ->exclude(config('opcache.exclude_dirs'))
             ->files()
             ->followLinks());
 
         // optimized files
-        $files->each(function ($file) use (&$compiled) {
-            $array = explode('/', (string) $file);
+        $files->each(function ($file) use (&$compiled, $force) {
+            $file = (string) $file;
+            $array = explode('/', $file);
             $filename = array_pop($array);
 
             if (in_array($filename, config('opcache.exclude_files'), true)) {
                 return;
             }
             try {
-                if (! opcache_is_script_cached((string) $file)) {
-                    opcache_compile_file((string) $file);
+                if (! opcache_is_script_cached($file)) {
+                    opcache_invalidate($file, $force);
+                    opcache_compile_file($file);
                 }
 
                 ++$compiled;
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
             }
         });
 
