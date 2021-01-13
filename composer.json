@@ -1,5 +1,5 @@
 {
-    "name": "wilbur-yu/hyperf-opcache",
+    "name": "wilbur/hyperf-opcache",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -8,7 +8,7 @@
         "opcache",
         "swoole",
         "hyperf-opcache",
-        "wilbur-yu",
+        "wilbur.yu",
         "wilbur"
     ],
     "authors": [
