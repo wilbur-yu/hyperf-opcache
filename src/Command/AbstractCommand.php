@@ -9,11 +9,11 @@ declare(strict_types=1);
  * @contact  wenber.yu@creative-life.club
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace WilburYu\HyperfOpcache\Command;
+namespace Wilbur\HyperfOpcache\Command;
 
 use Hyperf\Command\Command;
 use Psr\Container\ContainerInterface;
-use WilburYu\HyperfOpcache\Opcache;
+use Wilbur\HyperfOpcache\Opcache;
 
 abstract class AbstractCommand extends Command
 {

@@ -22,7 +22,7 @@
     "description": "PHP Opcache command for Hyperf",
     "autoload": {
         "psr-4": {
-            "WilburYu\\HyperfOpcache\\": "src/"
+            "Wilbur\\HyperfOpcache\\": "src/"
         }
     },
     "autoload-dev": {

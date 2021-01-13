@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @contact  wenber.yu@creative-life.club
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-namespace WilburYu\HyperfOpcache;
+namespace Wilbur\HyperfOpcache;
 
 use Symfony\Component\Finder\Finder;
 use Throwable;
