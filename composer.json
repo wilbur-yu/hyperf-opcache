@@ -1,5 +1,5 @@
 {
-    "name": "wilbur/hyperf-opcache",
+    "name": "wilbur-yu/hyperf-opcache",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -22,7 +22,7 @@
     "description": "PHP Opcache command for Hyperf",
     "autoload": {
         "psr-4": {
-            "Wilbur\\HyperfOpcache\\": "src/"
+            "WilburYu\\HyperfOpcache\\": "src/"
         }
     },
     "autoload-dev": {
