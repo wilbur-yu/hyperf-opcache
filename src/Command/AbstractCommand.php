@@ -13,7 +13,7 @@ namespace WilburYu\HyperfOpcache\Command;
 
 use Hyperf\Command\Command;
 use Psr\Container\ContainerInterface;
-use WilburYU\HyperfOpcache\Opcache;
+use WilburYu\HyperfOpcache\Opcache;
 
 abstract class AbstractCommand extends Command
 {
