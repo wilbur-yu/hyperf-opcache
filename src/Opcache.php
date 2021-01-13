@@ -93,11 +93,12 @@ class Opcache
             $array = explode('/', $file);
             $filename = array_pop($array);
 
-            if (in_array($filename, config('opcache.exclude_files'), true)) {
+            $excludeFiles = config('opcache.exclude_files');
+            if (! empty($excludeFiles) && in_array($filename, config('opcache.exclude_files'), true)) {
                 return;
             }
             try {
-                if (! opcache_is_script_cached($file)) {
+                if (opcache_is_script_cached($file)) {
                     opcache_invalidate($file, $force);
                     opcache_compile_file($file);
                 }

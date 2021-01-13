@@ -30,7 +30,7 @@ class CompileCommand extends AbstractCommand
 
     public function handle(): void
     {
-        $this->output->info('Compiling scripts...');
+        $this->info('Compiling scripts...');
 
         $force = $this->input->getOption('force');
 
