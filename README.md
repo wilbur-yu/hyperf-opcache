@@ -11,11 +11,11 @@ This package requires hyperf 2.1 or newer.
 # Installation
 You can install the package via Composer:
 ```bash
-composer require wilbur/hyperf-opcache
+composer require wilbur-yu/hyperf-opcache
 ```
 If you need to change config values, you can publish the config file with:
 ```bash
-php bin/hyperf.php vendor:publish wilbur/hyperf-opcache
+php bin/hyperf.php vendor:publish wilbur-yu/hyperf-opcache
 ```
 
 # usage
