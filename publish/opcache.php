@@ -14,8 +14,6 @@ return [
         BASE_PATH . '/app',
         BASE_PATH . '/bin',
         BASE_PATH . '/config',
-        BASE_PATH . '/runtime/container',
-        BASE_PATH . '/storage',
         BASE_PATH . '/vendor',
     ],
     'exclude_dirs' => [
