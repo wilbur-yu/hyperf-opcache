@@ -100,8 +100,8 @@ class Opcache
             try {
                 if (opcache_is_script_cached($file)) {
                     opcache_invalidate($file, $force);
-                    opcache_compile_file($file);
                 }
+                opcache_compile_file($file);
 
                 ++$compiled;
             } catch (Throwable $e) {
