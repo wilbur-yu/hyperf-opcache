@@ -19,7 +19,7 @@ use Symfony\Component\Console\Input\InputOption;
  */
 class CompileCommand extends AbstractCommand
 {
-    protected $name = 'opcache:compile';
+    protected ?string $name = 'opcache:compile';
 
     public function configure(): void
     {

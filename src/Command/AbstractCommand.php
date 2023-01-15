@@ -17,15 +17,9 @@ use WilburYu\HyperfOpcache\Opcache;
 
 abstract class AbstractCommand extends Command
 {
-    /**
-     * @var \Psr\Container\ContainerInterface
-     */
-    protected $container;
+    protected ContainerInterface $container;
 
-    /**
-     * @var \WilburYu\HyperfOpcache\Opcache
-     */
-    protected $opcache;
+    protected Opcache $opcache;
 
     public function __construct(ContainerInterface $container)
     {

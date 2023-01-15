@@ -31,12 +31,12 @@
         }
     },
     "require": {
-        "php": ">=7.3",
+        "php": ">= 8.0",
         "ext-zend-opcache": "*",
-        "hyperf/command": "^2.1",
-        "hyperf/config": "^2.1",
-        "hyperf/contract": "^2.1",
-        "hyperf/di": "^2.1",
+        "hyperf/command": "3.0.*",
+        "hyperf/config": "3.0.*",
+        "hyperf/contract": "3.0.*",
+        "hyperf/di": "3.0.*",
         "symfony/finder": "^5.2"
     },
     "require-dev": {
@@ -45,7 +45,6 @@
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": ">=7.0",
         "swoole/ide-helper": "dev-master",
-        "hyperf/ide-helper": "2.2.0",
         "swow/swow": "dev-develop",
         "symfony/var-dumper": "^5.1"
     },

@@ -48,7 +48,7 @@ class Opcache
      *
      * @return array|bool
      */
-    public function getStatus()
+    public function getStatus(): bool|array
     {
         if (function_exists('opcache_get_status')) {
             return opcache_get_status(false);
@@ -64,7 +64,7 @@ class Opcache
      *
      * @return array
      */
-    public function compile($force = false): ?array
+    public function compile(bool $force = false): ?array
     {
         if (! $force && ! ini_get('opcache.dups_fix')) {
             return ['message' => 'opcache.dups_fix must be enabled, or run with --force'];

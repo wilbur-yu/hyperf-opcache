@@ -18,7 +18,7 @@ use Hyperf\Command\Annotation\Command;
  */
 class ClearCommand extends AbstractCommand
 {
-    protected $name = 'opcache:clear';
+    protected ?string $name = 'opcache:clear';
 
     public function configure(): void
     {

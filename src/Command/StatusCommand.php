@@ -18,7 +18,7 @@ use Hyperf\Command\Annotation\Command;
  */
 class StatusCommand extends AbstractCommand
 {
-    protected $name = 'opcache:status';
+    protected ?string $name = 'opcache:status';
 
     public function configure(): void
     {
