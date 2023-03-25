@@ -37,7 +37,7 @@
         "hyperf/config": "^3.0",
         "hyperf/contract": "^3.0",
         "hyperf/di": "^3.0",
-        "symfony/finder": "^5.2"
+        "symfony/finder": "^6.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0.0",
@@ -46,7 +46,7 @@
         "phpunit/phpunit": ">=7.0",
         "swoole/ide-helper": "dev-master",
         "swow/swow": "dev-develop",
-        "symfony/var-dumper": "^6.0"
+        "symfony/var-dumper": "^5.1"
     },
     "config": {
         "sort-packages": true
